@@ -13,4 +13,7 @@ else
   sleep 5
 fi
 
+git fetch
+git checkout feature/page-level-metadata
+git pull
 cp -v config/database.$DATABASE_ADAPTER.yml config/database.yml && bundle exec rails db:prepare && bundle exec rails server -b 0.0.0.0
