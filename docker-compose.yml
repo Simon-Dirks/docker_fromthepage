@@ -4,6 +4,9 @@ services:
     build: .
     environment:
     - DATABASE_ADAPTER=mysql
+    - RAILS_ENV=production
+    - RAILS_LOG_TO_STDOUT=true
+    - DIARY_DATABASE_PASSWORD=...
     links:
     - "mysql"
     ports:
