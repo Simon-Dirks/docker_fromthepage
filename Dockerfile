@@ -21,11 +21,6 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 WORKDIR /home
 
-# Clone the repository
-RUN git clone https://github.com/Simon-Dirks/fromthepage.git
-COPY database.sqlite.yml /home/fromthepage/config/database.sqlite.yml
-COPY database.mysql.yml /home/fromthepage/config/database.mysql.yml
-
 # Install required gems
 RUN gem install bundler -v 2.4.22
 RUN gem install nokogiri -v 1.15.5
@@ -37,6 +32,11 @@ RUN apt-get install libqtwebkit-dev -y
 RUN gem install public_suffix -v 5.1.1
 RUN gem install capybara -v 3.39.2
 RUN gem install capybara-webkit -v '1.15.1'
+
+RUN git clone 'https://github.com/Simon-Dirks/fromthepage.git'
+RUN cd fromthepage; git checkout feature/page-level-metadata; cd ..
+COPY database.sqlite.yml /home/fromthepage/config/database.sqlite.yml
+COPY database.mysql.yml /home/fromthepage/config/database.mysql.yml
 RUN cd fromthepage; bundle install; bundle add sqlite3 -v 1.6.9
 # RUN service mysql restart; ruby --version && mysql -V && false
 
