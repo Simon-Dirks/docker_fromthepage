@@ -27,7 +27,6 @@ COPY database.sqlite.yml /home/fromthepage/config/database.sqlite.yml
 COPY database.mysql.yml /home/fromthepage/config/database.mysql.yml
 
 # Install required gems
-#    bundle install
 RUN gem install bundler -v 2.4.22
 RUN gem install nokogiri -v 1.15.5
 RUN add-apt-repository ppa:rock-core/qt4
@@ -35,6 +34,8 @@ RUN apt update
 RUN apt-get install qt4-default -y
 RUN apt-get install libqtwebkit4 -y
 RUN apt-get install libqtwebkit-dev -y
+RUN gem install public_suffix -v 5.1.1
+RUN gem install capybara -v 3.39.2
 RUN gem install capybara-webkit -v '1.15.1'
 RUN cd fromthepage; bundle install; bundle add sqlite3 -v 1.6.9
 # RUN service mysql restart; ruby --version && mysql -V && false
