@@ -5,6 +5,7 @@ MAINTAINER Ryan Baumann <ryan.baumann@gmail.com>
 # Install Ruby, RubyGems, Bundler, ImageMagick, MySQL and Git
 # Install qt4/qtwebkit libraries for capybara
 # Install build deps for gems installed by bundler
+RUN rm -f /etc/apt/sources.list.d/*nodesource* /etc/apt/sources.list.d/*passenger*
 RUN add-apt-repository 'deb http://archive.ubuntu.com/ubuntu focal universe'
 RUN apt-get update && apt-get install -y imagemagick libmagickwand-dev \
     git graphviz tzdata \
