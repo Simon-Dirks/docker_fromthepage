@@ -4,11 +4,11 @@ docker exec -it "docker_fromthepage_v2-fromthepage-1" sh -c '
 echo "Adding origin..."
 git remote rm origin
 git remote add origin https://github.com/Simon-Dirks/fromthepage
-echo "Switching to page-level-metadata-branch"
-git checkout feature/page-level-metadata
-echo "Setting upstream to page-level-metadata feature"
+echo "Switching to development"
+git checkout development
+echo "Setting upstream to development"
 git fetch
-git branch --set-upstream-to=origin/feature/page-level-metadata feature/page-level-metadata
+git branch --set-upstream-to=origin/development development
 echo "Pulling..."
 git pull
 '
