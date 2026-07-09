@@ -34,7 +34,7 @@ RUN gem install capybara -v 3.39.2
 RUN gem install capybara-webkit -v '1.15.1'
 
 RUN git clone 'https://github.com/Simon-Dirks/fromthepage.git'
-RUN cd fromthepage; git checkout feature/page-level-metadata; cd ..
+RUN cd fromthepage; git checkout development; cd ..
 COPY database.sqlite.yml /home/fromthepage/config/database.sqlite.yml
 COPY database.mysql.yml /home/fromthepage/config/database.mysql.yml
 RUN cd fromthepage; bundle install; bundle add sqlite3 -v 1.6.9
