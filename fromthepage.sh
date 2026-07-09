@@ -16,4 +16,5 @@ fi
 git fetch
 git checkout development
 git pull
+bundle install
 cp -v config/database.$DATABASE_ADAPTER.yml config/database.yml && bundle exec rails db:prepare && bundle exec rails server -b 0.0.0.0
